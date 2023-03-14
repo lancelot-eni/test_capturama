@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Créer un nouvel utilisateur</h1>
+
+        {{ form_start(form) }}
+            <div class=row>
+                <div class="col-3 text-center">
+                    {{ form_label(form.email) }}
+                </div>
+                <div class="col-4">
+                    {{ form_widget(form.email) }}
+                </div>
+                <div class="col-5">
+                    {{ form_errors(form.email) }}
+                </div>
+            </div>
+
+            <div class=row>
+                <div class="col-3 text-center">
+                    Nom
+                </div>
+                <div class="col-4">
+                    {{ form_widget(form.name) }}
+                </div>
+                <div class="col-5">
+                    {{ form_errors(form.name) }}
+                </div>
+            </div>
+
+            <div class=row>
+                <div class="col-3 text-center">
+                    Prénom
+                </div>
+                <div class="col-4">
+                    {{ form_widget(form.firstname) }}
+                </div>
+                <div class="col-5">
+                    {{ form_errors(form.firstname) }}
+                </div>
+            </div>
+
+            <div class=row>
+                <div class="col-3 text-center">
+                Mot de Passe
+                </div>
+                <div class="col-4">
+                    {{ form_widget(form.plainPassword) }}
+                </div>
+                <div class="col-5">
+                    {{ form_errors(form.plainPassword) }}
+                </div>
+            </div>
+            <div class=row>
+                <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

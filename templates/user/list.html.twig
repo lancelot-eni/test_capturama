@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello!{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="container">
+        <h2> Liste des utilisateurs : </h2>
+        {% set compteur = 0 %}
+        {% for utilisateur in utilisateurs %}
+            {% if compteur % 3 == 0 %}
+                <div class="row">
+            {% endif %}
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        {{ utilisateur.email }}
+                    </div>
+                    <div class="card-body">
+                        {{ utilisateur.firstname }} {{ utilisateur.name }}
+                        <br>
+                        <a href="/admin/{{utilisateur.id}}/edit">modifier/supprimer</a>
+                    </div>
+                </div>
+            </div>
+            {% if compteur % 3 == 2 %}
+                </div>
+            {% endif %}
+            {% set compteur = compteur +1 %}
+        {% endfor %}
+
+    </div>
+{% endblock %}
